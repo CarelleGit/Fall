@@ -21,11 +21,11 @@ int main()
 	cal.y = 50;
 	cal.dimX = 50;
 	cal.dimY = 100;
-	cal.gravityForce = 2.5f;
+	cal.gravityForce = 6.26f;
 	FObject fRock;
 	fRock.oX = 800;
 	fRock.oY = 600;
-	fRock.gravity = 1.5f;
+	fRock.gravity = 6.26f;
 	Emitter rock;
 	rock.spawnInterval = 3.0f;
 	while (sfw::stepContext())

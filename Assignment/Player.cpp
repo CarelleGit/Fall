@@ -26,7 +26,13 @@ void Player::update()
 {
 	if (sfw::getKey('W'))
 	{
-		y = 120;
+		y += 10;
+
+		if (y >= 200)
+		{
+			y = 200;
+		}
+		
 	}
 	if (sfw::getKey('A'))
 	{
@@ -36,12 +42,9 @@ void Player::update()
 	{
 		x += 5;
 	}
-	if ((y - dimY/2)> 0)
+	if ((y - dimY / 2) > 0)
 	{
 		y -= gravityForce;
-		
+
 	}
-	
-
-
 }

@@ -33,7 +33,7 @@ void Emitter::update()
 
 				baby.enabled = true;
 
-				spawnAccumulator = 0.0f;
+				spawnAccumulator = 1.0f;
 				if (rock[i].oY <= 5)
 				{
 					break;
@@ -60,6 +60,6 @@ void Emitter::draw()
 		rock[i].enabled = false;
 	}
 
-	spawnAccumulator = 0.0f;
+	spawnAccumulator = 1.0f;
 
 }
