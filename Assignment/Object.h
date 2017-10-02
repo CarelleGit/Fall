@@ -7,6 +7,8 @@ public:
 	float oX;
 	float oY;
 	int rad;
+	float life;
+	float aTime;
 	float gravity;
 	bool enabled;
 

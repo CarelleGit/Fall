@@ -14,6 +14,7 @@ int main()
 {
 	sfw::initContext(800, 600, "Fall");
 	sfw::setBackgroundColor(BLACK);
+	srand(time(NULL));
 	int randx = 0;
 	int gravity = 0;
 	Player cal;
@@ -22,22 +23,30 @@ int main()
 	cal.dimX = 50;
 	cal.dimY = 100;
 	cal.gravityForce = 6.26f;
-	FObject fRock;
-	fRock.oX = 800;
-	fRock.oY = 600;
-	fRock.gravity = 6.26f;
-	Emitter rock;
-	rock.spawnInterval = 3.0f;
+	FObject Rock[30];
+	for (int i = 0; i < 30; i++)
+	{
+		randx = rand() % 800;
+		gravity = rand() % 10;
+		Rock[i].oX = randx;
+		Rock[i].oY = 600;
+		Rock[i].life = 4.5f;
+		Rock[i].gravity = gravity;
+	}
+	
+	Emitter emitter;
+		emitter.spawnInterval = 3.0;
 	while (sfw::stepContext())
 	{
 		cal.draw();
 		cal.update();
-
-		fRock.draw();
-		fRock.update();
-
-		rock.draw();
-		rock.update();
+		for (int i = 0; i < 20; i++)
+		{
+			Rock[i].draw();
+			Rock[i].update();
+		}
+			emitter.draw();
+			emitter.update();
 	}
 	sfw::termContext();
 	while (true){}

@@ -26,11 +26,10 @@ void Player::update()
 {
 	if (sfw::getKey('W'))
 	{
-		y += 10;
-
-		if (y >= 200)
+		y += 30;
+		if (y >= 100)
 		{
-			y = 200;
+			y = 100;
 		}
 		
 	}
