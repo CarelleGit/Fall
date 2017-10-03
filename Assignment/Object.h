@@ -1,7 +1,7 @@
 #pragma once
+#include "Collision.h"
 
-
-class FObject
+class FObject 
 {
 public:
 	float oX;

@@ -2,7 +2,7 @@
 
 #include "Object.h"
 
-class Emitter : FObject
+class Emitter : public FObject
 {
 	float spawnAccumulator;
 

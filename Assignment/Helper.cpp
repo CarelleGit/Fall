@@ -10,7 +10,5 @@ int dice(int dice, int side)
 		srand(time(NULL));
 		Return += rand() % side + 1;
 	}
-
-
 	return Return;
 }

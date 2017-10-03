@@ -4,6 +4,7 @@
 #include <ctime>
 Emitter::Emitter()
 {
+	spawnAccumulator = 0.0f;
 	for (int i = 0; i < 100; i++)
 	{
 		rock[i].enabled = false;
@@ -13,7 +14,7 @@ Emitter::Emitter()
 void Emitter::update()
 {
 	// check if it's time to spawn a new one
-	//if so, create one!\
+	//if so, create one!
 	    spawnAccumulator += sfw::getDeltaTime();
 
 
@@ -26,41 +27,52 @@ void Emitter::update()
 		//look for a particle that isn't in use
 		for (int i = 0; i < 100; i++)
 		{
-			if (rock[i].enabled == false)
-			{
-				//reactivate it
-				FObject& baby = rock[i];
+			//float tmpTime = 0.0f;
+			//tmpTime += sfw::getDeltaTime();
 
-				baby.oX = (rand() % 800 + 1);
-				baby.oY = 600;
+			//while(tmpTime < 1.0f)
+			//{
+			//	int hi = 0;
+			//	hi += 1;
+			//}
 
-				baby.gravity = (rand() % 10 + (-5));
-				
+				if (rock[i].enabled == false)
+				{
+					//reactivate it
+					FObject& baby = rock[i];
+
+					baby.oX = (rand() % 800 + 1);
+					baby.oY = (rand() % 600 + 700);
+
+					baby.gravity = (rand() % 100 + 80) * sfw::getDeltaTime();
 
 
-				baby.enabled = true;
 
-				rock[i].aTime = 0.0f;
-				rock[i].life = 0.5f;
+					baby.enabled = true;
 
-				spawnAccumulator = 0.0f;
-				break;
+					rock[i].aTime = 0.0f;
+					rock[i].life = 15.5f;
 
-			}
+					spawnAccumulator = 0.0f;
+					//tmpTime = 0.0f;
+					break;
+				}
+
+
 		}
 
 
 
 	}
 	//update all of the particles that are active
-	for (int i = 0; i < 100; i++)
-	{
+	//for (int i = 0; i < 100; i++)
+	//{
 
-		if (rock[i].aTime > timer + 1.5f)
-		{
-			rock[i].enabled == false;
-		}
-	}
+	//	if (rock[i].aTime > timer + 1.5f)
+	//	{
+	//		rock[i].enabled == false;
+	//	}
+	//}
 
 	for (int i = 0; i < 100; i++)
 	{
