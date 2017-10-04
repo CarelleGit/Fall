@@ -37,6 +37,8 @@ int main()
 	cal.gravityForce = 6.26f;
 	
 	Score score;
+	score.sTime = 0;
+	score.enable = true;
 	/*FObject Rock[30];
 	
 	
@@ -52,9 +54,13 @@ int main()
 	}*/
 	
 	Emitter emitter;
-	emitter.spawnInterval = 0.05f;
+	emitter.spawnInterval = 0.1f;
 	while (sfw::stepContext())
 	{
+		if (cal.enable == true)
+		{
+			score.enable = true;
+		}
 		score.update();
 		score.draw();
 		sfw::drawTexture(cloudT, 400, 550, 800, 100);
@@ -65,8 +71,6 @@ int main()
 			cal.update();
 			cal.draw();
 		}
-		
-
 		for (int i = 0; i < 100; i++)
 		{
 
@@ -85,6 +89,10 @@ int main()
 				if (sfw::getKey(KEY_TAB))
 				{
 					cal.x = 400;
+				}
+				if (cal.enable == false)
+				{
+					score.enable = false;
 				}
 			}
 		}

@@ -1,16 +1,32 @@
 #include "Score.h"
 #include "sfwdraw.h"
-
+#include <cmath>
+#include <iostream>
 void Score::update()
 {
+	if (enable == false)
+	{
+		sTime = 0.0f;
+	}
+	else
+	{
 		sTime += sfw::getDeltaTime();
 		min = sTime / 60;
-		//sec = sTime % 60;
-
+		sec = fmod((sTime - min), 60);
+	}
 }
 
 void Score::draw()
 {
-	sfw::drawString(font, "Clock ", 30, 510, 11, 11);
-	//sfw::drawString(font, , 100, 510, 11, 11);
+	Smin = std::to_string(min);
+	Ssec = std::to_string(sec);
+	/*PrintedTime.append(Smin);
+	PrintedTime.append(":");
+	PrintedTime.append(Ssec);*/
+
+
+	sfw::drawString(font, "Clock ", 30, 510, 12, 12);
+	sfw::drawString(font, Smin.c_str() , 100, 510, 12, 12);
+	sfw::drawString(font, ":", 111, 510, 12, 12);
+	sfw::drawString(font, Ssec.c_str() , 122, 510, 12, 12);
 }
