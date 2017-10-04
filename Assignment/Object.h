@@ -1,9 +1,10 @@
 #pragma once
 #include "Collision.h"
 
-class FObject 
+class FObject
 {
 public:
+	int textureID;
 	float oX;
 	float oY;
 	int rad;
