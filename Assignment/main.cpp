@@ -17,6 +17,7 @@ int main()
 	unsigned int texture;
 	unsigned int cloudT;
 	unsigned int cloudT2;
+	bool quit = false;
 	//unsigned int Time;
 	sfw::initContext(800, 600, "Rain");
 	//sfw::setBackgroundColor(GREEN);
@@ -73,7 +74,10 @@ int main()
 		}
 		for (int i = 0; i < 100; i++)
 		{
-
+			if (cal.enable == false)
+			{
+				emitter.enabled = false;
+			}
 
 			if (emitter.rock[i].enabled)//(rock[i].enabled)
 			{
@@ -89,6 +93,14 @@ int main()
 				if (sfw::getKey(KEY_TAB))
 				{
 					cal.x = 400;
+				}
+				if (sfw::getKey(KEY_ESCAPE))
+				{
+					quit = true;
+					while (quit == true)
+					{
+						return -1;
+					}
 				}
 				if (cal.enable == false)
 				{

@@ -72,6 +72,7 @@ void Player::update()
 		forward = false;
 		x += 5;
 	}
+	
 	if ((y - dimY / 2) >= 20 )
 	{
 		y -= gravityForce;
